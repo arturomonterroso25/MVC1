@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       }); */
     }
   };
+  /*NUEVO COMENTARIO */ 
   usuario.init({
     user: {
       type: DataTypes.STRING,
