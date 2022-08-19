@@ -24,3 +24,8 @@ Cada alumno tiene una rama de código con su nombre para poder colaborar y poste
 
 Hecho por Oscar
 Oscar
+
+
+Viernes 19 de Agosto de 2022 
+Oscar Benjamín Cáceres Aguilar
+"La vida te pone obstáculos, los límites los pones tú"
