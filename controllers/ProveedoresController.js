@@ -2,7 +2,7 @@
 
 const { create } = require('lodash');
 const Sequelize = require('sequelize');
-const Usuario = ('../models/Usuario');
+const Proveedores = ('../models/Proveedores');
 
 module.exports = {
     get(req, res) {

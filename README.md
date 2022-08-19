@@ -21,6 +21,6 @@ Cada alumno tiene una rama de código con su nombre para poder colaborar y poste
 > El código debe ser original, ya que la plataforma detecta automáticamente el plagio o repetición de código.
 > Debe trabajar solo en la rama que se le asignó.
 > Al final de cada proyecto, se revisará que tan constantes y completos fueron sus aportes al proyecto.
-   Hecho por: Edwin 
-   Prueba :3
-   Prueba :4 
+   19 de Agosto de 2022 
+   Edwin Tony Mejia  
+   "Solo s perseverante"
