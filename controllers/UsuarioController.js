@@ -1,9 +1,10 @@
 'user strict'
 const Sequelize = require('sequelize');
-const USR = require('../models/usuarios')
+const USR = require('../models/usuarios'); //Llamar al modelo
 
 module.exports = {
-    async get(req, res){
+    async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
+        //y conforme demanda
         const id = req.body.id;
         await USR.findByPk(id)
         .then(usuario => res.send(usuario))
