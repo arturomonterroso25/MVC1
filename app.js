@@ -2,6 +2,7 @@
 const express       = require('express');
 const cors          = require('cors');
 const logger        = require('morgan');
+const bodyParser    = require('body-parser');
 const http = require('http');
 const app = express();
 
@@ -13,6 +14,13 @@ app.use(cors());
 /* Agruegué el de express que el de bodyparser daba deprecate */
 app.use(express.json({limit:"50mb"}));  
 app.use(express.urlencoded({limit:"50mb" , extended: false }));  
+
+// habilitar body-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 require("./routes/index")(app);
