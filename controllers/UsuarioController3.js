@@ -1,24 +1,48 @@
 'user strict'
-
-const { create } = require('lodash');
-const Sequelize_usuario_3 = require('sequelize');
-const { toDefaultValue } = require('sequelize/types/utils');
-const Usuario_numero3 = ('../models/Usuario');
+const Sequelize = require('sequelize');
+const USR = require('../models/usuarios'); //Llamar al modelo
 
 module.exports = {
-    get(req, res){
-            var nombre;
+    async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
+        //y conforme demanda
+        const id = req.body.id;
+        await USR.findByPk(id)
+        .then(usuario => res.send(usuario))
+        .catch(error => res.status(400).send(error))
     },
 
-    create(req, res){
+    async create(req, res){
+        let form = req.body;
+        const datos = {
+            user: form.user,
+            password: form.password,
+            estado: form.estado,
+        }
 
+        await USR.create(datos).then(usuario =>{
+            res.send(usuario)
+        }).catch(err => {
+            console.log(err)
+        res.status(500).send({
+            message:
+            err.message || "Ocurrió un error"
+        });});
     },
 
-    update(req, res){
-
+    async update(req, res){
+        let form = req.body.form
+        await USR.update({
+            user: form.user,
+            password: form.password,
+            estado: form.estado
+        },
+        { where: {id: form.id }})
+        .then(usuario => res.status(200).send('El registro ha sido actualizado'))
+        .catch(error => res.status(400).send(error))
     },
 
-    delete(req, res){
-            var codigo;
+    async delete(req, res){
+        let form = req.body
+        await USR.destroy({ where: {id: form.id }});
     }
 }
