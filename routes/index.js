@@ -8,5 +8,7 @@ module.exports = (app) => {
      router.post('/usuario/create', UsuarioController.create);
      router.put('/usuario/update', UsuarioController.update);
      router.delete('/usuario/delete', UsuarioController.delete);
+
+     
      app.use('/', router);
 }
