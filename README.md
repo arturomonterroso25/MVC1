@@ -27,5 +27,3 @@ Cada alumno tiene una rama de código con su nombre para poder colaborar y poste
    Nombre: Edwin Tony Mejia Paxtor 
    Frase:"Solo se perseverante, pronto veras los resultados"
 
-   Frace : I loevera 
-
