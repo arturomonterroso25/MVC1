@@ -34,6 +34,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: false
         },
+        Total:{
+            type: DataTypes.DOUBLE,
+            allowNull: false
+    }
+}, 
+        {
+            sequelize,
+            modelname: 'Ventas',
     });
     return ventas;
 };
