@@ -19,9 +19,15 @@ module.exports = {
     async create(req, res){
         let form = req.body;
         const datos = {
-            user: form.user,
-            password: form.password,
-            estado: form.estado,
+            idcliente: form.idcliente,
+            nombre: form.nombre,
+            apellido: form.apelldio,
+            dpi: form.dpi,
+            telefono: form.telefono,
+            email: form.email,
+            nit: form.nit,
+            direccion: form.direccion,
+
         }
 
         await USR.create(datos).then(usuario =>{
