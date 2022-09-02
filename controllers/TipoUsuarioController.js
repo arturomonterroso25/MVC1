@@ -16,8 +16,7 @@ module.exports = {
     async create(req, res){
         let form = req.body;
         const datos = {
-            user: form.user,
-            password: form.password,
+            nombre: form.nombre,
             estado: form.estado,
         }
 
@@ -34,8 +33,7 @@ module.exports = {
     async update(req, res){
         let form = req.body
         await Tipo_Usuario.update({
-            user: form.user,
-            password: form.password,
+            nombre: form.nombre,
             estado: form.estado
         },
         { where: {id: form.id }})

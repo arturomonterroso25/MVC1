@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    id_tipo_usuarios:{
+    id_tipo_usuario:{
       type: DataTypes.INTEGER,
       allowNull: false
     }
