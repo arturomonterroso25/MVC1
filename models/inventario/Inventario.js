@@ -11,18 +11,34 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   usuario.init({
-    user: {
+    cantidad: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    password: {
+    producto: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    estado: {
-      type: DataTypes.INTEGER,
+    codigo_producto: {s
+      type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    cantidad: {
+      type: DataTypes.REAL,
+      allowNull: false
+    },
+    categoria: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tipo: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    descripcion: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'inventarios',
