@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    codigo_producto: {s
+    codigo_producto: {
       type: DataTypes.STRING,
       allowNull: false
     },
