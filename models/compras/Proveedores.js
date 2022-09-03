@@ -5,18 +5,20 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
+  class proveedor extends Model {
     static associate(models) {
-
+      proveedor.hasMany(models.compras,{
+        foreignKey: "id_proveedor",
+      });
     }
   };
-  usuario.init({
-    user: {
+  proveedor.init({
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    password: {
-      type: DataTypes.STRING,
+    telefono: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     estado: {

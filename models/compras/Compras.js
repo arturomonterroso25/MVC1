@@ -7,20 +7,27 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class usuario extends Model {
     static associate(models) {
-
+      proveedor.belongsTo(models.proveedor,{
+        foreignKey: "id_proveedor",
+      });
+    
     }
   };
   usuario.init({
-    user: {
+    Codigo_compra: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    password: {
+    Produto: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    estado: {
+    Cantidad: {
       type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    Total: {
+      type: DataTypes.DECIMAL,
       allowNull: false
     }
   }, {

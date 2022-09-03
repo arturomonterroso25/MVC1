@@ -5,27 +5,29 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
+  class producto extends Model {
     static associate(models) {
-
+      producto.belongsTo(models.inventario,{
+        foreignKey: "id_producto",
+      });
     }
   };
-  usuario.init({
-    user: {
+  producto.init({
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    estado: {
+    catidad: {
       type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    precio: {
+      type: DataTypes.DECIMAL,
       allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'productos',
+    modelName: 'producto',
   });
-  return usuario;
+  return producto;
 };
