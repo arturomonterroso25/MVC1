@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       tipo_usuario.hasMany(models.usuarios,{
         foreignKey: "id_tipo_usuario",
-      });
+      }); //Tiene muchos en la tabla padre
     }
   };
   tipo_usuario.init({

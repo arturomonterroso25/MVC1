@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       usuario.belongsTo(models.tipo_usuarios,{
         foreignKey: "id_tipo_usuario",
-      });
+      }); //pertenece a en la tabla hijo
     }
   };
   usuario.init({
