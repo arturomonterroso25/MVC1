@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
     total: {
       type: DataTypes.DECIMAL,
       allowNull: false
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   }, {
     sequelize,

@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('usuarios', {
+    await queryInterface.createTable('tipo_usuarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -21,26 +21,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      createdAt: {
+      permisos: {
         allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }/*,
-      id_tipo_usuario: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-            model: 'tipo_usuarios',
-            key: 'id'
-        }
-      }, */
+        type: Sequelize.STRING
+      }
+
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('usuarios');
+    await queryInterface.dropTable('tipo_usuarios');
   }
 };
+

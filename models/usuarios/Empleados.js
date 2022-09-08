@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   empleado.init({
-    user: {
-      name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     CUI: {
@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     phone: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    market_stall: {
       type: DataTypes.STRING,
       allowNull: false
     }
