@@ -5,27 +5,27 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
+  class inventario extends Model {
     static associate(models) {
 
     }
   };
-  usuario.init({
-    user: {
+  inventario.init({
+    product: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    estado: {
+    cant: {
       type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    date_inv: {
+      type: DataTypes.DATE,
       allowNull: false
     }
   }, {
     sequelize,
     modelName: 'inventarios',
   });
-  return usuario;
+  return inventario;
 };

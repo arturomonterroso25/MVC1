@@ -29,14 +29,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-/*       id_tipo_usuario: {
+      id_tipo_usuario: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
             model: 'tipo_usuarios',
             key: 'id'
         }
-      }, */
+      }, 
     });
   },
 
