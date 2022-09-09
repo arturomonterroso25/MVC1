@@ -4,24 +4,16 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
+  class departamento extends Model {
     static associate(models) {
-      usuario.belongsTo(models.tipo_usuarios,{
+      departamento.belongsTo(models.tipo_usuarios,{
         foreignKey: "ID_Tipo",
       }); //pertenece a en la tabla hijo
     }
   };
-  usuario.init({
+  departamento.init({
     Nombre: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    Apellido: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    ID_Tipo:{
-      type: DataTypes.INTEGER,
       allowNull: false
     },
     createdAt:{
@@ -34,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'usuarios'
+    modelName: 'departamentos'
   });
-  return usuario;
+  return departamento;
 };

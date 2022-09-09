@@ -5,12 +5,14 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
+  class empleado extends Model {
     static associate(models) {
-
+      empleado.belongsTo(models.departamentos,{
+        foreignKey: "ID_Departamento",
+      });
     }
   };
-  usuario.init({
+  empleado.init({
     Nombre: {
       type: DataTypes.STRING,
       allowNull: false
@@ -35,5 +37,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'empleados',
   });
-  return usuario;
+  return empleado;
 };
