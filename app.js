@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-require("./routes/index")(app);
+require("./routes/index.js")(app);
 
 app.use(express.static('./public'));
 

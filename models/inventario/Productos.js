@@ -5,29 +5,30 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class producto extends Model {
+  class productos extends Model {
     static associate(models) {
-      producto.belongsTo(models.inventario,{
+      productos.hasMany(models.inventarios,{
         foreignKey: "id_producto",
       });
     }
   };
-  producto.init({
+  productos.init({
     nombre: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    catidad: {
+    precio: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    precio: {
-      type: DataTypes.DECIMAL,
+   
+    estado: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'producto',
+    modelName: 'productos',
   });
-  return producto;
+  return productos;
 };

@@ -7,44 +7,31 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Venta extends Model {
     static associate(models) {
-      Venta.belongsTo(models.Cliente,{
-        foreignKey: "iid_cliente",
+      Venta.belongsTo(models.clientes,{
+        foreignKey: "id_clinte",
       });
 
     }
   };
   Venta.init({
-    codigo_venta: {
-      type: DataTypes.init,
+  
+   
+  
+    monto: {
+      type: DataTypes.DECIMAL,
       allowNull: false
     },
-    fecha: {
-      type: DataTypes.STRING,
+    estado: {
+      type: DataTypes.DECIMAL,
       allowNull: false
     },
-    Producto: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    Cantidad: {
+    id_clinte: {
       type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    Precio_Producto: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    Subtotal: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    Total: {
-      type: DataTypes.DECIMAL,
       allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'Venta',
+    modelName: 'ventas',
   });
   return Venta;
 };

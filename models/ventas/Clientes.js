@@ -7,14 +7,14 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Cliente extends Model {
     static associate(models) {
-      Cliente.hasMany(models.Ventas,{
-        foreignKey: "id_cliente",
+      Cliente.hasMany(models.ventas,{
+        foreignKey: "id_clinte",
       });
 
     }
   };
   Cliente.init({
-    nomrbre: {
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -31,13 +31,13 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     Nit: {
-      type: DataTypes.STRING ,
+      type: DataTypes.STRING,
       allowNull: false
     }
 
   }, {
     sequelize,
-    modelName: 'Cliente',
+    modelName: 'clientes',
   });
   return Cliente;
 };
