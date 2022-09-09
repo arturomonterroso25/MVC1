@@ -2,7 +2,7 @@
 
 module.exports = {
 up: async (queryInterface, Sequelize) => {
-  await queryInterface.createTable('Proveedores', {
+  await queryInterface.createTable('proveedores', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -23,11 +23,7 @@ up: async (queryInterface, Sequelize) => {
     },
     days: {
       allowNull: false,
-      type: Sequelize.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      type: Sequelize.DATE
+      type: Sequelize.STRING
     }
     
   });
@@ -37,3 +33,4 @@ up: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('proveedores');
   }
 };
+
