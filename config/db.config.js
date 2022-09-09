@@ -3,8 +3,9 @@ module.exports = {
     HOST: "localhost",
     USER: "root",
     PASSWORD: "",
-    DB: "MVC1",
+    DB: "mvc1",
     dialect: "mysql",
+    port:"3306",
     pool: {
       max: 5,
       min: 0,

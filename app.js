@@ -29,7 +29,7 @@ app.use(express.static('./public'));
 
 
 app.get('*', (req, res) => res.status(200).send({
-     message: 'Index.',
+     message: 'Bienvenidos a Arquitectura de Sistemas 1',
 }));
 
 

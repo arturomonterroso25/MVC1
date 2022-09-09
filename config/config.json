@@ -2,9 +2,10 @@
     "development": {
       "username": "root",
       "password": null,
-      "database": "MVC1",
+      "database": "mvc1",
       "host": "127.0.0.1",
       "dialect": "mysql",
+      "port":"3306",
       "operatorAliases": false
     },
     "test": {
@@ -12,14 +13,16 @@
       "password": null,
       "database": "MVC1",
       "host": "127.0.0.1",
-      "dialect": "mysql"
+      "dialect": "mysql",
+      "operatorAliases": false
     },
     "production": {
       "username": "root",
       "password": null,
       "database": "mvc1",
       "host": "127.0.0.1",
-      "dialect": "mysql"
+      "dialect": "mysql",
+      "operatorAliases": false
     }
   }
   

@@ -2,13 +2,13 @@
 const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
-const Usuario = db.usuarios;
+const Tipo_Usuario = db.tipo_usuarios;
 
 module.exports = {
     async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
-        const id = req.body.id;
-        await Usuario.findByPk(id)
+        const id = req.body.ID;
+        await Tipo_Usuario.findByPk(id)
         .then(usuario => res.send(usuario))
         .catch(error => res.status(400).send(error))
     },
@@ -16,12 +16,11 @@ module.exports = {
     async create(req, res){
         let form = req.body;
         const datos = {
-            Nombre: form.Nombre,
-            Apellido: form.Apellido,
-            ID_Tipo: form.ID_Tipo
+            nombre: form.nombre,
+            estado: form.estado,
         }
 
-        await Usuario.create(datos).then(usuario =>{
+        await Tipo_Usuario.create(datos).then(usuario =>{
             res.send(usuario)
         }).catch(err => {
             console.log(err)
@@ -32,19 +31,20 @@ module.exports = {
     },
 
     async update(req, res){
-        let form = req.body.form
-        await Usuario.update({
-            Nombre: form.Nombre,
-            Apellido: form.Apellido,
-            ID_Tipo: form.ID_Tipo
+        let form = req.body
+        await Tipo_Usuario.update({
+            nombre: form.nombre,
+            estado: form.estado
         },
-        { where: {ID: form.ID }})
+        { where: {id: form.id }})
         .then(usuario => res.status(200).send('El registro ha sido actualizado'))
         .catch(error => res.status(400).send(error))
     },
 
     async delete(req, res){
         let form = req.body
-        await Usuario.destroy({ where: {ID: form.ID }});
+        await Tipo_Usuario.destroy({ where: {id: form.id }})
+        .then(usuario => res.status(200).send('El registro ha sido eliminado'))
+        .catch(error => res.status(400).send(error));
     }
 }
