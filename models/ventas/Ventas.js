@@ -7,16 +7,16 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Venta extends Model {
     static associate(models) {
-      Venta.belongsTo(models.clientes,{
+      Venta.belongsTo(models.clientes, {
         foreignKey: "id_clinte",
       });
 
     }
   };
   Venta.init({
-  
-   
-  
+
+
+
     monto: {
       type: DataTypes.DECIMAL,
       allowNull: false

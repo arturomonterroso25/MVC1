@@ -7,18 +7,18 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class compra extends Model {
     static associate(models) {
-      compra.belongsTo(models.proveedores,{
+      compra.belongsTo(models.proveedores, {
         foreignKey: "id_proveedor",
       });
-    
+
     }
   };
   compra.init({
-   
+
     id_proveedor: {
       allowNull: false,
       type: DataTypes.INTEGER
-    }, 
+    },
     cantidad: {
       type: DataTypes.INTEGER,
       allowNull: false
