@@ -7,17 +7,19 @@ const Tipo_Usuario = db.tipo_usuarios;
 module.exports = {
     async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
-        const id = req.body.ID;
+        const id = req.body.id;
         await Tipo_Usuario.findByPk(id)
-        .then(usuario => res.send(usuario))
+        .then(tipo_usuario => res.send(tipo_usuario))
         .catch(error => res.status(400).send(error))
     },
 
     async create(req, res){
         let form = req.body;
         const datos = {
-            nombre: form.nombre,
-            estado: form.estado,
+            Tipo: form.Tipo,
+            Departamento: form.Departamento,
+            createdAt: form.createdAt,
+            updatedAt: form.updatedAt
         }
 
         await Tipo_Usuario.create(datos).then(usuario =>{
@@ -33,8 +35,10 @@ module.exports = {
     async update(req, res){
         let form = req.body
         await Tipo_Usuario.update({
-            nombre: form.nombre,
-            estado: form.estado
+            Tipo: form.Tipo,
+            Departamento: form.Departamento,
+            createdAt: form.createdAt,
+            updatedAt: form.updatedAt
         },
         { where: {id: form.id }})
         .then(usuario => res.status(200).send('El registro ha sido actualizado'))

@@ -18,7 +18,9 @@ module.exports = {
         const datos = {
             Nombre: form.Nombre,
             Apellido: form.Apellido,
-            ID_Tipo: form.ID_Tipo
+            ID_Tipo: form.ID_Tipo,
+            createdAt: form.createdAt,
+            updatedAt: form.updatedAt,
         }
 
         await Usuario.create(datos).then(usuario =>{
@@ -36,7 +38,9 @@ module.exports = {
         await Usuario.update({
             Nombre: form.Nombre,
             Apellido: form.Apellido,
-            ID_Tipo: form.ID_Tipo
+            ID_Tipo: form.ID_Tipo,
+            createdAt: form.createdAt,
+            updatedAt: form.updatedAt
         },
         { where: {ID: form.ID }})
         .then(usuario => res.status(200).send('El registro ha sido actualizado'))
