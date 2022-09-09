@@ -23,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     ID_Tipo:{
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    createdAt:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
     sequelize,
