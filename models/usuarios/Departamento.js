@@ -1,4 +1,3 @@
-
 'use strict';
 var Sequelize = require("sequelize");
 const {
@@ -7,7 +6,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class usuario extends Model {
     static associate(models) {
-
+      usuario.belongsTo(models.tipo_usuarios,{
+        foreignKey: "ID_Tipo",
+      }); //pertenece a en la tabla hijo
     }
   };
   usuario.init({
@@ -19,21 +20,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    DPI: 
-    {
+    ID_Tipo:{
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    Telefono: { type: DataTypes.STRING, 
-      allowNull: false 
+    createdAt:{
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
-    ID_Departamento: 
-    {  
-      type: DataTypes.INTEGER, 
-      allowNull: false}
+    updatedAt:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
-    modelName: 'empleados',
+    modelName: 'usuarios'
   });
   return usuario;
 };
