@@ -1,31 +1,32 @@
-
 'use strict';
 var Sequelize = require("sequelize");
 const {
-  Model
+    Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
-    static associate(models) {
-
-    }
-  };
-  usuario.init({
-    user: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    estado: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
-  }, {
-    sequelize,
-    modelName: 'proveedores',
-  });
-  return usuario;
+    class proveedor extends Model {
+        static associate(models) {
+            proveedor.hasMany(models.compras, {
+                foreignKey: "id_proveedor",
+            });
+        }
+    };
+    proveedor.init({
+        nombre: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        telefono: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }, {
+        sequelize,
+        modelName: 'proveedores',
+    });
+    return proveedor;
 };
