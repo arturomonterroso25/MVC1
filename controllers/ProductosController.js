@@ -2,29 +2,28 @@
 const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
-const Compra = db.compras;
+const Producto = db.productos;
 
 module.exports = {
     async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Compra.findByPk(id)
-        .then(compra => res.send(compra))
+        await Producto.findByPk(id)
+        .then(producto => res.send(producto))
         .catch(error => res.status(400).send(error))
     },
 
     async create(req, res){
         let form = req.body;
         const datos = {
-            product: form.product,
-            category: form.category,
-            cant: form.cant,
-            total:form.total,
-            date:form.date,
+            name: form.name,
+            date_exp: form.date_exp,
+            price:form.price,
+            cost:form.cost,
         }
 
-        await Compra.create(datos).then(compra =>{
-            res.send(compra)
+        await Producto.create(datos).then(producto =>{
+            res.send(producto)
         }).catch(err => {
             console.log(err)
         res.status(500).send({
@@ -35,20 +34,19 @@ module.exports = {
 
     async update(req, res){
         let form = req.body.form
-        await Compra.update({
-            product: form.product,
-            category: form.category,
-            cant: form.cant,
-            total:form.total,
-            date:form.date,
+        await Producto.update({
+            name: form.name,
+            date_exp: form.date_exp,
+            price:form.price,
+            cost:form.cost,
         },
         { where: {id: form.id }})
-        .then(compra => res.status(200).send('El registro ha sido actualizado'))
+        .then(producto => res.status(200).send('El registro ha sido actualizado'))
         .catch(error => res.status(400).send(error))
     },
 
     async delete(req, res){
         let form = req.body
-        await Compra.destroy({ where: {id: form.id }});
+        await Producto.destroy({ where: {id: form.id }});
     }
 }

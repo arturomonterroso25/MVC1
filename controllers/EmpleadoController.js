@@ -2,29 +2,29 @@
 const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
-const Compra = db.compras;
+const Empleado = db.empleados;
 
 module.exports = {
     async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Compra.findByPk(id)
-        .then(compra => res.send(compra))
+        await Empleado.findByPk(id)
+        .then(empleado => res.send(empleado))
         .catch(error => res.status(400).send(error))
     },
 
     async create(req, res){
         let form = req.body;
         const datos = {
-            product: form.product,
-            category: form.category,
-            cant: form.cant,
-            total:form.total,
-            date:form.date,
+            name: form.name,
+            CUI: form.CUI,
+            date_birth:form.date_birth,
+            phone:form.phone,
+            market_stall:form.market_stall,
         }
 
-        await Compra.create(datos).then(compra =>{
-            res.send(compra)
+        await Empleado.create(datos).then(empleado =>{
+            res.send(empleado)
         }).catch(err => {
             console.log(err)
         res.status(500).send({
@@ -35,20 +35,20 @@ module.exports = {
 
     async update(req, res){
         let form = req.body.form
-        await Compra.update({
-            product: form.product,
-            category: form.category,
-            cant: form.cant,
-            total:form.total,
-            date:form.date,
+        await Empleado.update({
+            name: form.name,
+            CUI: form.CUI,
+            date_birth:form.date_birth,
+            phone:form.phone,
+            market_stall:form.market_stall,
         },
         { where: {id: form.id }})
-        .then(compra => res.status(200).send('El registro ha sido actualizado'))
+        .then(empleado => res.status(200).send('El registro ha sido actualizado'))
         .catch(error => res.status(400).send(error))
     },
 
     async delete(req, res){
         let form = req.body
-        await Compra.destroy({ where: {id: form.id }});
+        await Empleado.destroy({ where: {id: form.id }});
     }
 }

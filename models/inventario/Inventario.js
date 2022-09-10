@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    date_inv: {
+    date: {
       type: DataTypes.DATE,
       allowNull: false
     }

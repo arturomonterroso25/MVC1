@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
-const Inventario = db.Inventarios;
+const Inventario = db.inventarios;
 
 module.exports = {
     async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
@@ -17,7 +17,7 @@ module.exports = {
         let form = req.body;
         const datos = {
             product: form.product,
-            cant: form.estado,
+            cant: form.cant,
             date:form.date,
         }
 
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     async update(req, res){
-        let form = req.body.form
+        let form = req.body
         await Inventario.update({
             product: form.product,
             cant: form.estado,
