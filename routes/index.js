@@ -5,6 +5,10 @@ const UsuarioController = require('../controllers/UsuarioController');
 const TipoUsuarioController = require('../controllers/TipoUsuarioController')
 const Comprascontroller = require('../controllers/Comprascontroller')
 const Proveedorescontroller = require('../controllers/Proveedorescontroller')
+const ProductosController = require('../controllers/ProductosController')
+const InventariosController = require('../controllers/InventariosController')
+const ClientesController = require('../controllers/ClientesController')
+const VentasController = require('../controllers/VentasController')
 
 module.exports = (app) => {
     router.get('/usuario/get', UsuarioController.get);
@@ -26,6 +30,26 @@ module.exports = (app) => {
     router.post('/compras/create', Comprascontroller.create);
     router.put('/compras/update', Comprascontroller.update);
     router.delete('/compras/delete', Comprascontroller.delete);
+
+    router.get('/productos/get', ProductosController.get);
+    router.post('/productos/create', ProductosController.create);
+    router.put('/productos/update', ProductosController.update);
+    router.delete('/productos/delete', ProductosController.delete);
+
+    router.get('/inventario/get', InventariosController.get);
+    router.post('/inventario/create', InventariosController.create);
+    router.put('/inventario/update', InventariosController.update);
+    router.delete('/inventario/delete', InventariosController.delete);
+
+    router.get('/ventas/get', VentasController.get);
+    router.post('/ventas/create', VentasController.create);
+    router.put('/ventas/update', VentasController.update);
+    router.delete('/ventas/delete', VentasController.delete);
+
+    router.get('/clientes/get', ClientesController.get);
+    router.post('/clientes/create', ClientesController.create);
+    router.put('/clientes/update', ClientesController.update);
+    router.delete('/clientes/delete', ClientesController.delete);
 
     app.use('/', router);
 }
