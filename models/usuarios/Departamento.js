@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   class departamento extends Model {
     static associate(models) {
       departamento.belongsTo(models.tipo_usuarios,{
-        foreignKey: "ID_Tipo",
+        foreignKey: "ID_Departamento",
       }); //pertenece a en la tabla hijo
     }
   };

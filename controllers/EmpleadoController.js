@@ -2,14 +2,15 @@
 const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
-const Departamento = db.departamentos;
+const Departamento = require('../models/usuarios/Departamento');
+const Empleado = db.empleados;
 
 module.exports = {
     async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Departamento.findByPk(id)
-        .then(departamento => res.send(departamento))
+        await Empleado.findByPk(id)
+        .then(empleado => res.send(empleado))
         .catch(error => res.status(400).send(error))
     },
 
@@ -17,12 +18,14 @@ module.exports = {
         let form = req.body;
         const datos = {
             Nombre: form.Nombre,
-            createdAt: form.createdAt,
-            updatedAt: form.updatedAt,
+            Apellido: form.Apellido,
+            DPI: form.DPI,
+            Telefono: form.Telefono,
+            ID_Departamento: form.ID_Departamento
         }
 
-        await Departamento.create(datos).then(departamento =>{
-            res.send(departamento)
+        await Empleado.create(datos).then(empleado =>{
+            res.send(empleado)
         }).catch(err => {
             console.log(err)
         res.status(500).send({
@@ -32,21 +35,23 @@ module.exports = {
     },
 
     async update(req, res){
-        let form = req.body
-        await Departamento.update({
+        let form = req.body.form
+        await Empleado.update({
             Nombre: form.Nombre,
-            createdAt: form.createdAt,
-            updatedAt: form.updatedAt
+            Apellido: form.Apellido,
+            DPI: form.DPI,
+            Telefono: form.Telefono,
+            ID_Departamento: form.ID_Departamento
         },
         { where: {id: form.id }})
-        .then(departamento => res.status(200).send('El registro ha sido actualizado'))
+        .then(empleado => res.status(200).send('El registro ha sido actualizado'))
         .catch(error => res.status(400).send(error))
     },
 
     async delete(req, res){
         let form = req.body
         await Departamento.destroy({ where: {id: form.id }})
-        .then(departamento => res.status(200).send('El registro ha sido eliminado'))
+        .then(empleado => res.status(200).send('El registro ha sido eliminado'))
         .catch(error => res.status(400).send(error));
     }
 }

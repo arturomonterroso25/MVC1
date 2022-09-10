@@ -49,6 +49,8 @@ module.exports = {
 
     async delete(req, res){
         let form = req.body
-        await Usuario.destroy({ where: {ID: form.ID }});
+        await Usuario.destroy({ where: {id: form.id }})
+        .then(usuario => res.status(200).send('El registro ha sido eliminado'))
+        .catch(error => res.status(400).send(error));
     }
 }
