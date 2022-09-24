@@ -34,10 +34,11 @@ module.exports = (sequelize, DataTypes) => {
     {  
       type: DataTypes.INTEGER, 
       allowNull: false},
-      ID_Sucrusal:{
-        type: DataTypes.INTEGER, 
-        allowNull: false
-      },
+    ID_Sucrusal:
+    {
+      type: DataTypes.INTEGER, 
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'empleados',
