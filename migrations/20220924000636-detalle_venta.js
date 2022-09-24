@@ -2,33 +2,28 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ventas', {
+    await queryInterface.createTable('detalle_venta', {
+
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fecha: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      monto: {
-        type: Sequelize.DECIMAL,
-        allowNull: false
-      },
-      estado: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      id_clinte: {
+
+    /*  id_producto: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'clientes',
+          model: 'producto',
           key: 'id'
         }
+      },*/
+      cantidad: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -41,6 +36,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ventas');
+    await queryInterface.dropTable('detalle_venta');
   }
 };
