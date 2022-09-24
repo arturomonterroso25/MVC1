@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
             compra.belongsTo(models.proveedores, {
                 foreignKey: "id_proveedor",
             });
+            compra.hasMany(models.productos, {
+                foreignKey: "id_productos",
+            });
 
         }
     };
@@ -18,12 +21,21 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type: DataTypes.INTEGER
         },
+        producto: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        id_productos: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        
         cantidad: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        precio: {
-            type: DataTypes.INTEGER,
+        total: {
+            type: DataTypes.DECIMAL,
             allowNull: false
         }
     }, {

@@ -19,13 +19,25 @@ module.exports = {
                     key: 'id'
                 }
             },
+            id_productos: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                references: {
+                    model: 'productos',
+                    key: 'id'
+                }
+            },
+            producto: {
+                type: Sequelize.STRING,
+                allowNull: false
+                },
             cantidad: {
                 type: Sequelize.INTEGER,
                 allowNull: false
             },
 
-            precio: {
-                type: Sequelize.INTEGER,
+            total: {
+                type: Sequelize.DECIMAL,
                 allowNull: false
             },
 

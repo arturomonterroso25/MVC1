@@ -12,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
             venta.hasMany(models.productos, {
                 foreignKey: "id_productos",
             });
+            venta.belongsTo(models.usuarios, {
+                foreignKey: "id_usuarios",
+            });
         }
     };
     venta.init({
@@ -31,6 +34,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        id_usuarios: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+
         descripcion: {
             type: DataTypes.STRING,
             allowNull: false

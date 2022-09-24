@@ -34,6 +34,14 @@ module.exports = {
                     key: 'id'
                 }
             },
+            id_usuarios: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                references: {
+                    model: 'usuarios',
+                    key: 'id'
+                }
+            },
             descripcion: {
                 type: Sequelize.STRING,
                 allowNull: false
