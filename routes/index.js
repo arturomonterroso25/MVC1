@@ -8,6 +8,7 @@ const DepartamentoController = require('../controllers/DepartamentoController');
 const ProveedorController = require('../controllers/ProveedorController');
 const TipoClienteController = require('../controllers/TipoClienteController');
 const ClienteController = require('../controllers/ClienteController');
+const SucursalController = require('../controllers/SucursalController');
 
 module.exports = (app) => {
      router.get('/usuario/get', UsuarioController.get);
@@ -44,6 +45,11 @@ module.exports = (app) => {
      router.post('/cliente/create',ClienteController.create);
      router.put('/cliente/update',ClienteController.update);
      router.delete('/cliente/delete',ClienteController.delete);
+
+     router.get('/sucursal/get',SucursalController.get);
+     router.post('/sucursal/create',SucursalController.create);
+     router.put('/sucursal/update',SucursalController.update);
+     router.delete('/sucursal/delete',SucursalController.delete);
      
      app.use('/', router);
 }
