@@ -21,7 +21,8 @@ module.exports = {
             Apellido: form.Apellido,
             DPI: form.DPI,
             Telefono: form.Telefono,
-            ID_Departamento: form.ID_Departamento
+            ID_Departamento: form.ID_Departamento,
+            ID_Sucursal: form.ID_Sucursal
         }
 
         await Empleado.create(datos).then(empleado =>{
@@ -41,7 +42,8 @@ module.exports = {
             Apellido: form.Apellido,
             DPI: form.DPI,
             Telefono: form.Telefono,
-            ID_Departamento: form.ID_Departamento
+            ID_Departamento: form.ID_Departamento,
+            ID_Sucursal: form.ID_Sucursal
         },
         { where: {id: form.id }})
         .then(empleado => res.status(200).send('El registro ha sido actualizado'))
