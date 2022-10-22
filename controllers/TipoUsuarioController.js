@@ -17,6 +17,7 @@ module.exports = {
         let form = req.body;
         const datos = {
             nombre: form.nombre,
+            //Aqui poner los demas atributos para su registro
             estado: 1,
         }
 
@@ -34,6 +35,7 @@ module.exports = {
         let form = req.body
         await Tipo_Usuario.update({
             nombre: form.nombre,
+            //Aqui poner los demas atributos para actualizar
             estado: 1
         },
         { where: {id: form.id }})
