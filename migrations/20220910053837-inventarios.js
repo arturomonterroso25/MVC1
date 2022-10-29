@@ -2,25 +2,47 @@
 
 module.exports = {
     up: async(queryInterface, Sequelize) => {
-        await queryInterface.createTable('usuarios', {
+        await queryInterface.createTable('inventario', {
+
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            user: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            password: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            estado: {
+
+            cantidad: {
+                allowNull: false,
                 type: Sequelize.INTEGER,
+            },
+            producto: {
+                type: Sequelize.STRING,
                 allowNull: false
             },
+
+            id_producto: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                references: {
+                    model: 'productos',
+                    key: 'id'
+                }
+            },
+            categoria: {
+                type: Sequelize.STRING,
+                allowNull: false
+            }
+            ,
+            tipo: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            
+            descripcion: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
@@ -29,18 +51,10 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            id_tipo_usuario: {
-                allowNull: false,
-                type: Sequelize.INTEGER,
-                references: {
-                    model: 'tipo_usuarios',
-                    key: 'id'
-                }
-            },
         });
     },
 
     down: async(queryInterface, Sequelize) => {
-        await queryInterface.dropTable('usuarios');
+        await queryInterface.dropTable('prodcutos');
     }
 };

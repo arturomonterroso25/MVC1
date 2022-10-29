@@ -1,35 +1,28 @@
-
 'use strict';
 var Sequelize = require("sequelize");
 const {
-  Model
+    Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
-    static associate(models) {
-
-    }
-  };
-  usuario.init({
-    user: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    estado: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    permisos: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  }, {
-    sequelize,
-    modelName: 'tipo_usuarios',
-  });
-  return usuario;
+    class tipo_usuario extends Model {
+        static associate(models) {
+            tipo_usuario.hasMany(models.usuarios, {
+                foreignKey: "id_tipo_usuario",
+            });
+        }
+    };
+    tipo_usuario.init({
+        nombre: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        estado: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
+    }, {
+        sequelize,
+        modelName: 'tipo_usuarios',
+    });
+    return tipo_usuario;
 };

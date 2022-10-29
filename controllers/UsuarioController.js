@@ -19,6 +19,7 @@ module.exports = {
             user: form.user,
             password: form.password,
             estado: form.estado,
+            id_tipo_usuario: form.id_tipo_usuario
         }
 
         await Usuario.create(datos).then(usuario =>{
@@ -32,11 +33,12 @@ module.exports = {
     },
 
     async update(req, res){
-        let form = req.body.form
+        let form = req.body
         await Usuario.update({
             user: form.user,
             password: form.password,
-            estado: form.estado
+            estado: form.estado,
+            id_tipo_usuario: form.id_tipo_usuario
         },
         { where: {id: form.id }})
         .then(usuario => res.status(200).send('El registro ha sido actualizado'))
@@ -45,6 +47,8 @@ module.exports = {
 
     async delete(req, res){
         let form = req.body
-        await Usuario.destroy({ where: {id: form.id }});
+        await Usuario.destroy({ where: {id: form.id }})
+        .then(usuario => res.status(200).send('El registro ha sido eliminado'))
+        .catch(error => res.status(400).send(error));
     }
 }

@@ -1,39 +1,46 @@
-
 'use strict';
 var Sequelize = require("sequelize");
 const {
-  Model
+    Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class compras extends Model {
-    static associate(models) {
+    class compra extends Model {
+        static associate(models) {
+            compra.belongsTo(models.proveedores, {
+                foreignKey: "id_proveedor",
+            });
+            compra.hasMany(models.productos, {
+                foreignKey: "id_productos",
+            });
 
-    }
-  };
-  compras.init({
-    product: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    cant: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    total: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false
-    }
-  }, {
-    sequelize,
-    modelName: 'compras',
-  });
-  return compras;
+        }
+    };
+    compra.init({
+
+        id_proveedor: {
+            allowNull: false,
+            type: DataTypes.INTEGER
+        },
+        producto: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        id_productos: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        
+        cantidad: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        total: {
+            type: DataTypes.DECIMAL,
+            allowNull: false
+        }
+    }, {
+        sequelize,
+        modelName: 'compras',
+    });
+    return compra;
 };

@@ -2,42 +2,54 @@ const { Router } = require('express');
 const router = Router();
 
 const UsuarioController = require('../controllers/UsuarioController');
-const ProveedorController = require('../controllers/ProveedorController');
-const ComprasController = require('../controllers/ComprasController');
-const InventarioController = require('../controllers/InventarioController');
-const EmpleadoController = require('../controllers/EmpleadoController');
-const ProductoController = require('../controllers/ProductosController');
+const TipoUsuarioController = require('../controllers/TipoUsuarioController')
+const Comprascontroller = require('../controllers/Comprascontroller')
+const Proveedorescontroller = require('../controllers/Proveedorescontroller')
+const ProductosController = require('../controllers/ProductosController')
+const InventariosController = require('../controllers/InventariosController')
+const ClientesController = require('../controllers/ClientesController')
+const VentasController = require('../controllers/VentasController')
+
 module.exports = (app) => {
-     router.get('/usuario/get', UsuarioController.get);
-     router.post('/usuario/create', UsuarioController.create);
-     router.put('/usuario/update', UsuarioController.update);
-     router.delete('/usuario/delete', UsuarioController.delete);
+    router.get('/usuario/get', UsuarioController.get);
+    router.post('/usuario/create', UsuarioController.create);
+    router.put('/usuario/update', UsuarioController.update);
+    router.delete('/usuario/delete', UsuarioController.delete);
 
-     router.get('/proveedor/get', ProveedorController.get);
-     router.post('/proveedor/create', ProveedorController.create);
-     router.put('/proveedor/update', ProveedorController.update);
-     router.delete('/proveedor/delete', ProveedorController.delete);
+    router.get('/tipo_usuario/get', TipoUsuarioController.get);
+    router.post('/tipo_usuario/create', TipoUsuarioController.create);
+    router.put('/tipo_usuario/update', TipoUsuarioController.update);
+    router.delete('/tipo_usuario/delete', TipoUsuarioController.delete);
 
-     
-     router.get('/compra/get', ComprasController.get);
-     router.post('/compra/create', ComprasController.create);
-     router.put('/compra/update', ComprasController.update);
-     router.delete('/compra/delete', ComprasController.delete);
+    router.get('/proveedores/get', Proveedorescontroller.get);
+    router.post('/proveedores/create', Proveedorescontroller.create);
+    router.put('/proveedores/update', Proveedorescontroller.update);
+    router.delete('/proveedores/delete', Proveedorescontroller.delete);
 
-     router.get('/inventario/get', InventarioController.get);
-     router.post('/inventario/create', InventarioController.create);
-     router.put('/inventario/update',InventarioController.update);
-     router.delete('/inventario/delete', InventarioController.delete);
+    router.get('/compras/get', Comprascontroller.get);
+    router.post('/compras/create', Comprascontroller.create);
+    router.put('/compras/update', Comprascontroller.update);
+    router.delete('/compras/delete', Comprascontroller.delete);
 
-     router.get('/empleado/get', EmpleadoController.get);
-     router.post('/empleado/create', EmpleadoController.create);
-     router.put('/empleado/update',EmpleadoController.update);
-     router.delete('/empleado/delete', EmpleadoController.delete);
+    router.get('/productos/get', ProductosController.get);
+    router.post('/productos/create', ProductosController.create);
+    router.put('/productos/update', ProductosController.update);
+    router.delete('/productos/delete', ProductosController.delete);
 
-     router.get('/producto/get', ProductoController.get);
-     router.post('/producto/create', ProductoController.create);
-     router.put('/producto/update',ProductoController.update);
-     router.delete('/producto/delete', ProductoController.delete);
+    router.get('/inventario/get', InventariosController.get);
+    router.post('/inventario/create', InventariosController.create);
+    router.put('/inventario/update', InventariosController.update);
+    router.delete('/inventario/delete', InventariosController.delete);
 
-     app.use('/', router);
+    router.get('/ventas/get', VentasController.get);
+    router.post('/ventas/create', VentasController.create);
+    router.put('/ventas/update', VentasController.update);
+    router.delete('/ventas/delete', VentasController.delete);
+
+    router.get('/clientes/get', ClientesController.get);
+    router.post('/clientes/create', ClientesController.create);
+    router.put('/clientes/update', ClientesController.update);
+    router.delete('/clientes/delete', ClientesController.delete);
+
+    app.use('/', router);
 }

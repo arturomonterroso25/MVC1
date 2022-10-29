@@ -2,13 +2,13 @@
 const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
-const Productos = db.productos;
+const Ventas = db.ventas;
 
 module.exports = {
     async get(req, res) { //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Productos.findByPk(id)
+        await Ventas.findByPk(id)
             .then(usuario => res.send(usuario))
             .catch(error => res.status(400).send(error))
     },
@@ -16,13 +16,14 @@ module.exports = {
     async create(req, res) {
         let form = req.body;
         const datos = {
-            nombre: form.nombre,
-            precio: form.precio,
+            cantidad: form.cantidad,
+            total: form.total,
+            //id_productos: form.id_productos,
+            id_clientes: form.id_clientes,
             descripcion: form.descripcion,
-
         }
 
-        await Productos.create(datos).then(usuario => {
+        await Ventas.create(datos).then(usuario => {
             res.send(usuario)
         }).catch(err => {
             console.log(err)
@@ -34,11 +35,12 @@ module.exports = {
 
     async update(req, res) {
         let form = req.body
-        await Productos.update({
-                nombre: form.nombre,
-                precio: form.precio,
+        await Ventas.update({
+                cantidad: form.cantidad,
+                total: form.total,
+                //id_productos: form.id_productos,
+                id_clientes: form.id_clientes,
                 descripcion: form.descripcion,
-
             }, { where: { id: form.id } })
             .then(usuario => res.status(200).send('El registro ha sido actualizado'))
             .catch(error => res.status(400).send(error))
@@ -46,7 +48,7 @@ module.exports = {
 
     async delete(req, res) {
         let form = req.body
-        await Productos.destroy({ where: { id: form.id } })
+        await Ventas.destroy({ where: { id: form.id } })
             .then(usuario => res.status(200).send('El registro ha sido eliminado'))
             .catch(error => res.status(400).send(error));
     }

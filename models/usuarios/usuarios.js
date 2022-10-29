@@ -7,7 +7,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class usuario extends Model {
     static associate(models) {
-
+      usuario.belongsTo(models.tipo_usuarios,{
+        foreignKey: "id_tipo_usuario",
+      });
+      usuario.hasMany(models.ventas,{
+        foreignKey: "id_ventas",
+      });
     }
   };
   usuario.init({
@@ -20,6 +25,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     estado: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    id_tipo_usuario:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    id_ventas:{
       type: DataTypes.INTEGER,
       allowNull: false
     }
