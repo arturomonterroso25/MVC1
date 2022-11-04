@@ -7,7 +7,8 @@ const Proveedor = db.proveedores;
 module.exports = {
     async get(req, res){ 
         const id = req.body.id;
-        await Proveedor.findByPk(id)
+        //await Proveedor.findByPk(id)
+        await Proveedor.findAll()
         .then(proveedor => res.send(proveedor))
         .catch(error => res.status(400).send(error))
     },

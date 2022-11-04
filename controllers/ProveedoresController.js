@@ -8,7 +8,8 @@ module.exports = {
     async get(req, res) { //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Proveedores.findByPk(id)
+        //await Proveedores.findByPk(id)
+        await Proveedores.findAll()
             .then(usuario => res.send(usuario))
             .catch(error => res.status(400).send(error))
     },

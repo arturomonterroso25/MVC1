@@ -8,7 +8,8 @@ module.exports = {
     async get(req, res) { //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Compra.findByPk(id)
+        //await Compra.findByPk(id)
+        await Compra.findAll()
             .then(usuario => res.send(usuario))
             .catch(error => res.status(400).send(error))
     },
@@ -17,8 +18,10 @@ module.exports = {
         let form = req.body;
         const datos = {
             id_proveedor: form.id_proveedor,
+            id_productos: form.id_productos,
+            producto: form.producto,
             cantidad: form.cantidad,
-            precio: form.precio,
+            total: form.total,
 
         }
 
@@ -35,9 +38,11 @@ module.exports = {
     async update(req, res) {
         let form = req.body
         await Compra.update({
-                id_proveedor: form.id_proveedor,
-                cantidad: form.cantidad,
-                precio: form.precio,
+            id_proveedor: form.id_proveedor,
+            id_productos: form.id_productos,
+            producto: form.producto,
+            cantidad: form.cantidad,
+            total: form.total,
             }, { where: { id: form.id } })
             .then(usuario => res.status(200).send('El registro ha sido actualizado'))
             .catch(error => res.status(400).send(error))
