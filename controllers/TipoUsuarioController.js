@@ -43,9 +43,9 @@ module.exports = {
         .catch(error => res.status(400).send(error))
     },
 
-    async delete(req, res){
+    delete(req, res){
         let form = req.body
-        await Tipo_Usuario.destroy({
+        Tipo_Usuario.destroy({
             where: {
               id: form.id
             },

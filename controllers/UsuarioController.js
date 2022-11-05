@@ -3,12 +3,17 @@ const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
 const Usuario = db.usuarios;
+const Tipo_Usuario = db.tipo_usuarios;
 
 module.exports = {
     async get(req, res){ //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Usuario.findByPk(id)
+        await Usuario.findAll({
+            include: [
+                Tipo_Usuario
+            ]
+        })
         .then(usuario => res.send(usuario))
         .catch(error => res.status(400).send(error))
     },

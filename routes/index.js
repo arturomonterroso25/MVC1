@@ -13,7 +13,7 @@ module.exports = (app) => {
      router.get('/tipo_usuario/get', TipoUsuarioController.get);
      router.post('/tipo_usuario/create', TipoUsuarioController.create);
      router.put('/tipo_usuario/update', TipoUsuarioController.update);
-     router.delete('/tipo_usuario/delete', TipoUsuarioController.delete);
+     router.put('/tipo_usuario/delete', TipoUsuarioController.delete);
 
      
      app.use('/', router);
