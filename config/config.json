@@ -1,27 +1,27 @@
 {
     "development": {
       "username": "root",
-      "password": "osaymoca231",
+      "password": "",
       "database": "mvc1",
       "host": "127.0.0.1",
-      "port": 3307,
+      "port": 3306,
       "dialect": "mysql",
       "operatorAliases": false
     },
     "test": {
       "username": "root",
-      "password": "osaymoca231",
+      "password": "",
       "database": "mvc1",
       "host": "127.0.0.1",
-      "port": 3307,
+      "port": 3306,
       "dialect": "mysql"
     },
     "production": {
       "username": "root",
-      "password": "osaymoca231",
+      "password": "",
       "database": "mvc1",
       "host": "127.0.0.1",
-      "port": 3307,
+      "port": 3306,
       "dialect": "mysql"
     }
   }

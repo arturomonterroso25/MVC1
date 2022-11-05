@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
       Venta.belongsTo(models.clientes, {
         foreignKey: "id_clinte",
       });
-
+      Venta.belongsTo(models.detalle_venta, {
+        foreignKey: "id_detalle_venta",
+      });
     }
   };
   Venta.init({
-
-
 
     monto: {
       type: DataTypes.DECIMAL,
@@ -28,7 +28,12 @@ module.exports = (sequelize, DataTypes) => {
     id_clinte: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    id_detalle_venta: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
+
   }, {
     sequelize,
     modelName: 'ventas',
