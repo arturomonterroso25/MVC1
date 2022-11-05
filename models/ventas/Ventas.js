@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     estado: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: true
     },
     id_clinte: {
       type: DataTypes.INTEGER,

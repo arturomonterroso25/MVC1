@@ -3,12 +3,16 @@ const Sequelize = require('sequelize');
 //Llamar al modelo
 const db = require("../models");
 const Venta = db.ventas;
-
+const Cliente = db.clientes;
 module.exports = {
     async get(req, res) { //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Venta.findByPk(id)
+        await Venta.findAll({
+            include: [
+                Cliente
+              ]
+            })
             .then(venta => res.send(venta))
             .catch(error => res.status(400).send(error))
     },

@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     estado: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,
