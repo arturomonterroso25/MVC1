@@ -22,4 +22,4 @@ Cada alumno tiene una rama de código con su nombre para poder colaborar y poste
 > Debe trabajar solo en la rama que se le asignó.
 > Al final de cada proyecto, se revisará que tan constantes y completos fueron sus aportes al proyecto.
 
-Realizado por: Edwin
+Realizado por: Ediwn

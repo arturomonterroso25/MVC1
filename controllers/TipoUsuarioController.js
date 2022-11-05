@@ -8,16 +8,16 @@ module.exports = {
     async get(req, res) { //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Tipo_Usuario.findByPk(id)
-            .then(usuario => res.send(usuario))
-            .catch(error => res.status(400).send(error))
+        await Tipo_Usuario.findAll()
+        .then(usuario => res.send(usuario))
+        .catch(error => res.status(400).send(error))
     },
 
     async create(req, res) {
         let form = req.body;
         const datos = {
             nombre: form.nombre,
-            estado: form.estado,
+            estado: 1,
         }
 
         await Tipo_Usuario.create(datos).then(usuario => {
@@ -33,17 +33,18 @@ module.exports = {
     async update(req, res) {
         let form = req.body
         await Tipo_Usuario.update({
-                nombre: form.nombre,
-                estado: form.estado
-            }, { where: { id: form.id } })
-            .then(usuario => res.status(200).send('El registro ha sido actualizado'))
-            .catch(error => res.status(400).send(error))
+            nombre: form.nombre,
+            estado: form.estado
+        },
+        { where: {id: form.id }})
+        .then(usuario => res.status(200).send('El registro ha sido actualizado'))
+        .catch(error => res.status(400).send(error))
     },
 
     async delete(req, res) {
         let form = req.body
-        await Tipo_Usuario.destroy({ where: { id: form.id } })
-            .then(usuario => res.status(200).send('El registro ha sido eliminado'))
-            .catch(error => res.status(400).send(error));
+        await Tipo_Usuario.destroy({ where: {id: form.id }})
+        .then(usuario => res.status(200).send('El registro ha sido eliminado'))
+        .catch(error => res.status(400).send(error));
     }
 }

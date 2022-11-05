@@ -16,7 +16,7 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             direccion: {
-                type: Sequelize.DECIMAL,
+                type: Sequelize.STRING,
                 allowNull: false
             },
             email: {

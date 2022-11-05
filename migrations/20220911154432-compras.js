@@ -27,10 +27,6 @@ module.exports = {
                     key: 'id'
                 }
             },
-            producto: {
-                type: Sequelize.STRING,
-                allowNull: false
-                },
             cantidad: {
                 type: Sequelize.INTEGER,
                 allowNull: false

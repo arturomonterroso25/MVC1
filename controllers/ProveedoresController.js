@@ -8,7 +8,7 @@ module.exports = {
     async get(req, res) { //asincronas significa que vamos a estar realizando todo en diferente tiempo
         //y conforme demanda
         const id = req.body.id;
-        await Proveedores.findByPk(id)
+        await Proveedores.findAll()
             .then(usuario => res.send(usuario))
             .catch(error => res.status(400).send(error))
     },
@@ -44,9 +44,9 @@ module.exports = {
             .catch(error => res.status(400).send(error))
     },
 
-    async delete(req, res) {
+        delete(req, res) {
         let form = req.body
-        await Proveedores.destroy({ where: { id: form.id } })
+            Proveedores.destroy({ where: { id: form.id } })
             .then(usuario => res.status(200).send('El registro ha sido eliminado'))
             .catch(error => res.status(400).send(error));
     }

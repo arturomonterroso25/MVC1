@@ -10,9 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       usuario.belongsTo(models.tipo_usuarios,{
         foreignKey: "id_tipo_usuario",
       });
-      usuario.hasMany(models.ventas,{
-        foreignKey: "id_ventas",
-      });
     }
   };
   usuario.init({
